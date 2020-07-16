@@ -39,7 +39,8 @@ function getFluidGatsbyImage(image, args = {}) {
   }
 
   let sizes = options.sizes || `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`
-  let widths = sizeMultipliersFluid
+  let multipliers = options.multipliers || sizeMultipliersFluid
+  let widths = multipliers
     .map(scale => Math.round(maxWidth * scale))
     .filter(width => width < dimensions.width)
     .concat(dimensions.width)
