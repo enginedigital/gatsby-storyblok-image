@@ -12,6 +12,7 @@ export const defaultOptions = {
   fill: null,
   toFormat: null,
   base64: null,
+  retinaDivisor: 2,
   useBase64: true
 }
 

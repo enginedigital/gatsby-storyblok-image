@@ -68,8 +68,10 @@ function getFluidGatsbyImage(image, args = {}) {
         ...{ format: forceConvert }
       })
 
-      acc.webp.push(`${webpUrl} ${currentWidth}w`)
-      acc.base.push(`${baseUrl} ${currentWidth}w`)
+      const retinaWidth = Math.floor(parseInt(currentWidth)/options.retinaDivisor);
+
+      acc.webp.push(`${webpUrl} ${retinaWidth}w`)
+      acc.base.push(`${baseUrl} ${retinaWidth}w`)
       return acc
     }, initial)
 
