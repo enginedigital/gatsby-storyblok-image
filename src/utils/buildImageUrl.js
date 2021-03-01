@@ -8,12 +8,11 @@ function buildImageUrl(originalPath, image) {
 
   let url = STORYBLOK_BASE_URL
   
-  //storyblok resize seems to stop at 4000, then set to proportional
-  if (height > 4000) {
-    height = 0
-  }
-
   if (width && height) {
+    //storyblok resize seems to stop at 4000, then set to proportional
+    if (height > 4000) {
+      height = 0
+    }
     url += `/${width}x${height}`
   }
 
