@@ -38,7 +38,7 @@ function getFluidGatsbyImage(image, args = {}) {
     forceConvert = 'jpg'
   }
 
-  let sizes = options.sizes || `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`
+  let sizes = options.sizes || `(max-width: ${maxWidth - 1}px) 100vw, ${maxWidth}px`
   let multipliers = options.multipliers || sizeMultipliersFluid
   let widths = multipliers
     .map(scale => Math.round(maxWidth * scale))
@@ -47,7 +47,7 @@ function getFluidGatsbyImage(image, args = {}) {
 
   let initial = { webp: [], base: [] }
   let srcSets = widths
-    .filter(currentWidth => currentWidth < dimensions.width)
+    .filter(currentWidth => currentWidth <= dimensions.width)
     .reduce((acc, currentWidth) => {
       let currentHeight = Math.round(currentWidth / desiredAspectRatio)
 
